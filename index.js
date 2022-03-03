@@ -1,8 +1,8 @@
 const express = require("express");
 const sequelize = require('./database');
-const User = require('./User');
+const User = require('./Users');
 
-sequelize.sync({ force: true }).then(() => console.log('db is ready'));
+sequelize.sync({ force: false }).then(() => console.log('db is ready'));
 
 const app = express();
 
@@ -38,6 +38,6 @@ app.delete('/users/:id', async (req, res) => {
   res.send('removed');
 })
 
-app.listen(3000, () => {
+app.listen(5000, () => {
   console.log("app is running");
 });
