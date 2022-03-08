@@ -2,7 +2,7 @@ const express = require("express");
 
 const sequelize = require('./database');
 
-sequelize.sync({ force: false }).then(() => console.log('db is ready'));
+sequelize.sync({ force: true }).then(() => console.log('db is ready'));
 
 const cors = require('cors')
 const app = express();

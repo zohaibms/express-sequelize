@@ -29,6 +29,12 @@ Users.init({
   },
   State: {
     type: "varchar(15)"
+  },
+  isActive: {
+    type: DataTypes.BOOLEAN
+  },
+  isLocked:{
+    type: DataTypes.BOOLEAN
   }
 }, {
   sequelize,

@@ -1,7 +1,7 @@
 module.exports = function(app){
 
   const User = require('./Users');
-  const auth = require('./UserAuthViewModel');
+  const auth = {};
 
     app.post('/users', async (req, res) => {
         await User.create(req.body);
