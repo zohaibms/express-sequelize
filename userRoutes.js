@@ -27,11 +27,12 @@ module.exports = function(app){
       })
       
       app.put('/users/:id', async (req, res) => {
+        console.log(req.body.UserName);
         const id = req.params.id;
         const user = await User.findOne({where: {id: id}});
-        user.username = req.body.username;
+        user.UserName = req.body.UserName;
         await user.save();
-        res.send('updated');
+        res.status(200).send('Updated');
       })
       
       app.delete('/users/:id', async (req, res) => {
