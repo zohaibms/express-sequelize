@@ -60,7 +60,7 @@ module.exports = function (app) {
     if (user) {
       auth.authSuccess = true;
       auth.messages = "None";
-      auth.UserDetail = {UserName : user.UserName , isActive: user.isActive,isLocked: user.isLocked};
+      auth.UserDetail = {UserName : user.UserName , FirstName:user.FirstName, LastName:user.LastName,isActive: user.isActive,isLocked: user.isLocked};
     }
     else{
       auth.authSuccess = false;
