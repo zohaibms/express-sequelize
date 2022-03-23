@@ -4,6 +4,8 @@ module.exports = function(app){
   const auth = {};
 
     app.post('/users', async (req, res) => {
+		req.body.isActive = true;
+		req.body.isLocked = false;
         await User.create(req.body);
         res.send("success");
       })
@@ -31,6 +33,14 @@ module.exports = function(app){
         const id = req.params.id;
         const user = await User.findOne({where: {id: id}});
         user.UserName = req.body.UserName;
+        user.LastName = req.body.LastName;
+        user.Password = req.body.Password;
+        user.Phone = req.body.Phone;
+        user.Address = req.body.Address;
+        user.City = req.body.City;
+        user.State = req.body.State;
+        user.isActive = req.body.isActive;
+        user.isLocked = req.body.isLocked;
         await user.save();
         res.status(200).send('Updated');
       })
@@ -38,7 +48,7 @@ module.exports = function(app){
       app.delete('/users/:id', async (req, res) => {
         const id = req.params.id;
         await User.destroy({where: {id: id}});
-        res.send('removed');
+        res.status(200).send('removed');
       })
 
 
