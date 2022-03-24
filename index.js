@@ -11,7 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 /** Users Routings */
-require('./userRoutes')(app);
+require('./modules/Users/userRoutes')(app);
+
+/**Transactions Routings */
+require('./modules/Transactions/TransactionRoutes')(app);
 
 app.listen (5000, () => {
   console.log("app is running");
