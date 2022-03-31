@@ -2,7 +2,7 @@ const express = require("express");
 
 const sequelize = require('./database');
 
-sequelize.sync({ force: false }).then(() => console.log('db is ready'));
+sequelize.sync({ force: true }).then(() => console.log('db is ready'));
 
 const cors = require('cors')
 const app = express();
@@ -15,6 +15,9 @@ require('./modules/Users/userRoutes')(app);
 
 /**Transactions Routings */
 require('./modules/Transactions/TransactionRoutes')(app);
+
+/**Sidebar Routings */
+require('./modules/Sidebar/sidebarRoutes')(app);
 
 app.listen (5000, () => {
   console.log("app is running");

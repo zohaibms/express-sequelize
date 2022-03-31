@@ -1,0 +1,10 @@
+module.exports = function (app) {
+
+const sidebar = require("./Sidebar");
+
+app.get("/getmenu", async (req,res) => {
+    const menu = await sidebar.findAll();
+    res.send(menu);
+  });
+
+};
