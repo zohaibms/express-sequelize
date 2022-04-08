@@ -17,7 +17,7 @@ app.get("/trx", async () => {
     res.send(categories);
   });
 
-  app.get("/trxsubcategories", async () => {
+  app.get("/trxsubcategories", async (req,res) => {
     const subCategories = await SubCategories.findAll();
     res.send(subCategories);
   });
